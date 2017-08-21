@@ -11,11 +11,19 @@
    </repositories>
      <dependencies>
      	<dependency>
+     	<!-- Bukkit -->
           <groupId>org.bukkit</groupId>
           <artifactId>bukkit</artifactId>
           <version>1.12-R0.1-SNAPSHOT</version>
           <type>jar</type>
           <scope>provided</scope>
     	</dependency>
+    	<!-- CraftBukkit -->
+    	<dependency>
+    		<groupId>org.bukkit</groupId>
+    		<artifactId>craftbukkit</artifactId>
+    		<version>1.12-R0.1-SNAPSHOT</version>
+    		<scope>provided</scope>
+		</dependency>
    </dependencies>
 </project>
