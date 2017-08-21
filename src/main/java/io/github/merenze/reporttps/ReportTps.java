@@ -1,5 +1,7 @@
 package io.github.merenze.reporttps;
 
-public class ReportTps {
+import org.bukkit.plugin.java.JavaPlugin;
+
+public class ReportTps extends JavaPlugin {
 
 }
