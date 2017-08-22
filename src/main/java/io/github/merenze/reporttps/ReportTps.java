@@ -7,6 +7,6 @@ public class ReportTps extends JavaPlugin{
 	@Override
 	public void onEnable() {
 		//Schedule task here
-		BukkitTask report = new ReportTask(this).runTaskTimer(this, 0, 20*30);
+		BukkitTask report = new ReportTask(this).runTaskTimer(this, 0, 200);
 	}
 }

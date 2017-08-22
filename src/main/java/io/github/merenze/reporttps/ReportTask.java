@@ -13,15 +13,21 @@ import net.minecraft.server.v1_12_R1.PacketPlayOutTitle.EnumTitleAction;
 public class ReportTask extends BukkitRunnable {
 	private ReportTps plugin;
 	
+	private long startTime;
+	private long endTime;
+	
 	public ReportTask(ReportTps plugin) {
 		this.plugin = plugin;
+		this.startTime = System.currentTimeMillis();
 	}
 
 	public void run() {
-		// TODO Auto-generated method stub
+		this.endTime = System.currentTimeMillis();
+		String msg = "" + calculateTps(startTime, endTime) + "tps";
 		for (Player player:Bukkit.getServer().getOnlinePlayers()) {
-			sendTitle(player, "FOO!");
+			sendTitle(player, msg);
 		}
+		this.startTime = System.currentTimeMillis();
 	}
 	
 	private void sendTitle(Player player, String text) { 
@@ -32,7 +38,12 @@ public class ReportTask extends BukkitRunnable {
 		((CraftPlayer) player).getHandle().playerConnection.sendPacket(title);
 		((CraftPlayer) player).getHandle().playerConnection.sendPacket(length);
 		
-		//Bukkit.getServer().broadcastMessage("Title has been sent!");
+	}
+	
+	private long calculateTps(long startTime, long endTime) {
+		long actualTime = endTime-startTime;
+		
+		return ((long)200) / (actualTime/1000);
 	}
 
 }
